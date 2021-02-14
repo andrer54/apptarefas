@@ -14,7 +14,7 @@ import br.com.adev.apptarefas.repository.TarefaRepository;
 
 @RestController
 @RequestMapping("/tarefas")
-public class TarefaController {
+public class ApiTarefaController {
 
     @Autowired
     private TarefaRepository tarefaRepository;
@@ -27,4 +27,5 @@ public class TarefaController {
     public Tarefa tarefa(@RequestBody Tarefa tarefa){
         return this.tarefaRepository.save(tarefa);
     }
+
 }

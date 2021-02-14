@@ -1,6 +1,6 @@
 package br.com.adev.apptarefas.controllers;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +19,7 @@ import br.com.adev.apptarefas.repository.UserRepository;
 @RequestMapping("/users")
 public class UserController {
 
-    private List<User> users = new ArrayList<User>();
+    //private List<User> users = new ArrayList<User>();
 
     @Autowired
     private UserRepository userRepository;
