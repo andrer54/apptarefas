@@ -2,7 +2,7 @@
 <html xmlns:th="http://thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
-        <title>Eventos APP</title>
+        <title>APP tarefas</title>
         <!-- Compiled and minified CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,11 +12,9 @@
     <body>
         <nav>
             <div class="nav-wrapper">
-              <a href="#" class="brand-logo">Lista de eventos</a>
+              <a href="#" class="brand-logo">lista de Tarefas</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/novaTarefa" class="waves-effect waves-light btn">Nova Tarefa</a></li>
-                <li><a href="/cadastrarTarefas" class="waves-effect waves-light btn">Cadastrar tarefas</a></li>
-                <li><a href="/tarefas" class="waves-effect waves-light btn">tarefas</a></li>
               </ul>
             </div>
           </nav>
@@ -28,8 +26,9 @@
         <table class="container">
             <thead>
                 <tr>
+                    <th></th>
                     <th>tarefa</th>
-                    <th>status</th>
+                    <th>descricao</th>
                     <th>editar</th>
                     <th>Deletar</th>
                     
@@ -38,10 +37,17 @@
             <tbody>
                 <tr th:each="tarefa : ${tarefas}">
                     <div class="row">
+                        <td>  
+                            <label class="secondary-content">
+                            <input type="checkbox" class="done-checkbox" th:attr="data-id=${tarefa.id}"
+                                   th:checked="${tarefa.feito}"/>
+                            <span></span>
+                            </label>
+                        </td>
                         <td><span th:text="${tarefa.nome}"></span></td>
-                        <td><span th:text="${tarefa.status}"></span></td>
+                        <td><span th:text="${tarefa.descricao}"></span></td>
                         <td><a th:href="${(#mvc.url('TC#detalhesTarefa').arg(0, tarefa.id)).build()}"><span th:text="${tarefa.nome}"></span></a></td>
-                        <td><a th:href="${(#mvc.url('TC#deletarTarefa').arg(0, tarefa.id)).build()}" target="_blank">deletar</a></td>
+                        <td><a th:href="${(#mvc.url('TC#deletarTarefa').arg(0, tarefa.id)).build()}">deletar</a></td>
                     </div>
                 </tr>
             </tbody>

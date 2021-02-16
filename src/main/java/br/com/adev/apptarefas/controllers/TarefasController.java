@@ -1,7 +1,5 @@
 package br.com.adev.apptarefas.controllers;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -39,6 +37,7 @@ public class TarefasController {
     }
     @RequestMapping(value="/novaTarefa", method=RequestMethod.POST)
     public String form(Tarefa tarefa){
+        
         tr.save(tarefa);
         return "redirect:/";
     }

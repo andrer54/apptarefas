@@ -2,18 +2,40 @@
 <html xmlns:th="http://thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
-        <title>Tarefas APP</title>
+        <title>App tarefas</title>
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </head>
     <body>
-        <h1>Pagina de cadastro de tarefas</h1>
+        <nav>
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo">lista de Tarefas</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/" class="waves-effect waves-light btn">Todas Tarefas</a></li>
+              </ul>
+            </div>
+          </nav>
+        <h3>Cadastro de tarefas</h3>
         <p>
-            Hey there! <span th:text="${tarefa?.nome}"></span>
+            <span th:text="${tarefa?.nome}"></span>
         </p>
         <form method="post">
 
-            Nome da tarefa: <input type="text" name="nome" th:value="${tarefa?.nome}"/>
-            status: <input type="text" name="status" th:value="${tarefa?.status}" />
-            
+            Nome da tarefa: 
+
+            <input type="text" name="nome" th:value="${tarefa?.nome}"/>
+
+            status:  
+            <label class="primary-content">
+                <input type="checkbox" name="feito" class="done-checkbox" th:attr="data-id=${tarefa?.id}"
+                        th:checked="${tarefa?.feito}"/>
+                 <span></span>
+                 </label> 
+            <input type="text" name="descricao" th:value="${tarefa?.descricao}" />
+
                         <button action="submit">Salvar</button> 
 
         </form>
